@@ -134,29 +134,28 @@ if (document.body.classList.contains('produtos')) {
         checkoutBtn.classList.toggle('disabled', cart.length === 0);
     }
     
-    // Pesquisar produtos
-    function searchProducts() {
-        const searchTerm = searchInput.value.toLowerCase();
-        if (searchTerm.trim() === '') {
-            renderProducts();
-            return;
-        }
-        
-        const filteredProducts = products.filter(product => 
-            product.name.toLowerCase().includes(searchTerm) || 
-            product.category.toLowerCase().includes(searchTerm)
-        );
-        
-        renderProducts(filteredProducts);
+    // Função para pesquisar produtos (CORRIGIDA)
+function searchProducts() {
+    const searchTerm = searchInput.value.toLowerCase();
+    if (searchTerm.trim() === '') {
+        renderProducts();
+        return;
     }
     
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm)
+    );
+    
+    renderProducts(filteredProducts);
+}
+    searchInput.addEventListener('input', searchProducts);
     // Event listeners
-    searchButton.addEventListener('click', searchProducts);
-    searchInput.addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') {
-            searchProducts();
-        }
-    });
+    //searchButton.addEventListener('click', searchProducts);
+    //searchInput.addEventListener('keyup', (e) => {
+      //  if (e.key === 'Enter') {
+       //     searchProducts();
+      //  }
+    //});
     
     // Inicializar
     renderProducts();
