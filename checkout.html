@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia Digital - Finalizar Compra</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="checkout">
+    <div class="container">
+        <header>
+            <h1>Farmácia Digital</h1>
+            <p>Confirme seu pedido</p>
+        </header>
+        
+        <div class="order-summary">
+            <h2>Resumo do Pedido</h2>
+            <div class="order-items" id="orderItems">
+                <!-- Itens do pedido serão carregados via JavaScript -->
+            </div>
+            <div class="order-total" id="orderTotal">Total: R$ 0,00</div>
+        </div>
+        
+        <div class="checkout-actions">
+            <a href="produtos.html" class="back-btn">Voltar</a>
+            <button class="confirm-btn" id="confirmOrder">Confirmar Pedido</button>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+          
+        <footer>
+            <p>Farmácia Digital © <span id="year"></span> - Atendimento Automático</p>
+            
+            <!-- Botão de contato (WhatsApp) -->
+            <div class="contact-container">
+                <a href="https://wa.me/5521990699910" 
+                   class="contact-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                   📞 Falar no WhatsApp
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Ano automático
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

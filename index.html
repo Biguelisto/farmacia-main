@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia Digital - Bem-vindo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inicio">
+    <div class="bannerProdutos">
+        <div class="logo-container">
+            <a href="#" class="logo">
+                <i class="fas fa-prescription-bottle-alt logo-icon"></i>
+                Farmácia Digital
+            </a>
+        </div>
+    </div>
+    <div class="container"> 
+        <main>
+            <div class="welcome-message">
+                <h2>Bem-vindo ao nosso sistema de autoatendimento</h2>
+                <p>Toque no botão abaixo para começar a comprar</p>
+            </div>
+            
+            <div class="start-button-container">
+                <a href="produtos.html" class="start-button">Iniciar Compra</a>
+            </div>
+            
+            <div class="instructions">
+                <h3>Como funciona:</h3>
+                <ol>
+                    <li>Selecione os produtos desejados</li>
+                    <li>Revise seu pedido</li>
+                    <li>Finalize e receba sua senha</li>
+                    <li>Um atendente irá chamá-lo quando seu pedido estiver pronto</li>
+                </ol>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+            <p>Farmácia Digital © <span id="year"></span> - Atendimento Automático</p>
+            
+            <!-- Botão de contato (WhatsApp) -->
+            <div class="contact-container">
+                <a href="https://wa.me/5521990699910" 
+                   class="contact-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                   📞 Falar no WhatsApp
+                </a>
+            </div>
+        </footer>
+        
+    <script>
+        // Ano automático
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

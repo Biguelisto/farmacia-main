@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia Digital - Produtos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="produtos">
+    <div class="bannerProdutos">
+        <div class="logo-container">
+            <a href="#" class="logo">
+                <i class="fas fa-prescription-bottle-alt logo-icon"></i>
+                Farmácia Digital
+            </a>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Pesquisar produtos...">
+            <button id="searchButton">Buscar</button>
+        </div>
+        
+        <div class="buttons-container">
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Seu Carrinho
+            </button>
+            <button class="phone-btn">
+                <i class="fas fa-phone"></i>
+            </button>
+        </div>
+    </div>
+        
+        
+    <div class="container">  
+        
+        <div class="product-grid" id="productGrid">
+            <!-- Produtos serão carregados via JavaScript -->
+        </div>
+        
+        <div class="cart-container">
+            <div class="cart-header">
+                <div class="cart-title">Seu Carrinho</div>
+                <div class="cart-count">0</div>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">Seu carrinho está vazio</div>
+            </div>
+            <div class="cart-total">Total: R$ 0,00</div>
+            <a href="checkout.html" class="checkout-btn" id="checkoutBtn">Finalizar Compra</a>
+    </div>
+        </div>
+    <footer>
+            <p>Farmácia Digital © <span id="year"></span> - Atendimento Automático</p>
+            
+            <!-- Botão de contato (WhatsApp) -->
+            <div class="contact-container">
+                <a href="https://wa.me/5521990699910" 
+                   class="contact-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                   📞 Falar no WhatsApp
+                </a>
+            </div>
+        </footer>
+    <script src="js/script.js"></script>
+
+
+    <script>
+        // Ano automático
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

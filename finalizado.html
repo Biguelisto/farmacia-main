@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmácia Digital - Pedido Finalizado</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="finalizado">
+    <div class="bannerProdutos">
+        <div class="logo-container">
+            <a href="#" class="logo">
+                <i class="fas fa-prescription-bottle-alt logo-icon"></i>
+                Farmácia Digital
+            </a>
+        </div>
+    </div>
+    <div class="order-complete">
+    <div class="ticket">
+        <div class="ticket-header">Comprovante de Pedido</div>
+        <div class="ticket-body" id="ticketItems">
+            <!-- Itens serão preenchidos por JavaScript -->
+        </div>
+        <div class="ticket-total" id="ticketTotal">Total: R$ 0,00</div>
+        <div class="ticket-highlight">
+            <div class="ticket-label">Sua senha para retirada:</div>
+            <div class="ticket-number" id="ticketNumber">A-000</div>
+        </div>
+    </div>
+    
+    <p class="instructions">
+        Por favor, aguarde no local enquanto preparamos seu pedido.<br>
+        Você será chamado pela senha acima.
+    </p>
+    
+    <div class="complete-actions">
+        <a href="produtos.html" class="new-order-btn">Fazer Novo Pedido</a>
+        <a href="index.html" class="home-btn">Voltar ao Início</a>
+    </div>
+</div>
+    
+    <script src="js/script.js"></script>
+           
+        <footer>
+            <p>Farmácia Digital © <span id="year"></span> - Atendimento Automático</p>
+            
+            <!-- Botão de contato (WhatsApp) -->
+            <div class="contact-container">
+                <a href="https://wa.me/5521990699910" 
+                   class="contact-button" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                   📞 Falar no WhatsApp
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Ano automático
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
