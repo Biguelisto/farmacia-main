@@ -973,7 +973,7 @@ footer {
 
 /* Estilos para a página de administração */
 body.admin {
-    background: linear-gradient(135deg, #ffadad 0%, #8a3327 100%);
+    background: linear-gradient(135deg, #fad3d3 0%, #f7d7d3 100%);
     min-height: 100vh;
     padding: 20px;
 }

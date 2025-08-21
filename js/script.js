@@ -41,7 +41,7 @@ function getAllProducts() {
     const base = [...products];
     const custom = getCustomProducts().map(p => ({ 
         ...p, 
-        id: p.id || Date.now() + Math.random() 
+        id: Number(p.id) // Garantir que o ID seja numérico
     }));
     return [...base, ...custom];
 }
@@ -63,8 +63,8 @@ function getAllCategories() {
 }
 
 // ===== CARRINHO DE COMPRAS =====
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let currentOrder = JSON.parse(localStorage.getItem('currentOrder')) || null;
+let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+let currentOrder = JSON.parse(localStorage.getItem('currentOrder') || 'null');
 
 // Função para salvar o carrinho no localStorage
 function saveCart() {
@@ -176,12 +176,17 @@ if (document.body.classList.contains('produtos')) {
         });
     }
     
-    // Adicionar produto ao carrinho
+    // Adicionar produto ao carrinho (CORRIGIDA)
     function addToCart(e) {
         const productId = parseInt(e.target.getAttribute('data-id'));
+        
+        // Buscar o produto em TODOS os produtos (base + personalizados)
         const product = getAllProducts().find(p => p.id === productId);
         
-        if (!product) return;
+        if (!product) {
+            console.error('Produto não encontrado:', productId);
+            return;
+        }
         
         // Verificar se o produto já está no carrinho
         const existingItem = cart.find(item => item.id === productId);
@@ -430,9 +435,9 @@ if (document.body.classList.contains('admin')) {
     // Preencher formulário de edição quando produto for selecionado
     if (editProductSelect) {
         editProductSelect.addEventListener('change', function() {
-            const productId = this.value;
+            const productId = parseInt(this.value);
             const customProducts = getCustomProducts();
-            const product = customProducts.find(p => p.id == productId);
+            const product = customProducts.find(p => p.id === productId);
             
             if (product) {
                 document.getElementById('editProdName').value = product.name;
@@ -453,13 +458,13 @@ if (document.body.classList.contains('admin')) {
         });
     }
 
-    // Adicionar novo produto
+    // Adicionar novo produto (CORRIGIDA)
     if (addProductForm) {
         addProductForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const newProduct = {
-                id: Date.now(),
+                id: Date.now(), // Garantir que o ID seja numérico
                 name: document.getElementById('prodName').value,
                 price: parseFloat(document.getElementById('prodPrice').value),
                 category: prodCategorySelect.value,
@@ -477,14 +482,14 @@ if (document.body.classList.contains('admin')) {
         });
     }
 
-    // Editar produto existente
+    // Editar produto existente (CORRIGIDA)
     if (editProductForm) {
         editProductForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const productId = editProductSelect.value;
+            const productId = parseInt(editProductSelect.value);
             const customProducts = getCustomProducts();
-            const productIndex = customProducts.findIndex(p => p.id == productId);
+            const productIndex = customProducts.findIndex(p => p.id === productId);
             
             if (productIndex !== -1) {
                 customProducts[productIndex] = {
@@ -568,3 +573,22 @@ if (document.body.classList.contains('admin')) {
     renderEditProductOptions();
     renderAdminProductList();
 }
+// ===== INICIALIZAÇÃO GLOBAL =====
+// Ano automático
+if (document.getElementById("year")) {
+    document.getElementById("year").textContent = new Date().getFullYear();
+}
+
+// ===== DEBUG =====
+// Função para debug (pode remover depois)
+function debugSystem() {
+    console.log('=== SISTEMA DEBUG ===');
+    console.log('Produtos base:', products.length);
+    console.log('Produtos personalizados:', getCustomProducts().length);
+    console.log('Total de produtos:', getAllProducts().length);
+    console.log('Categorias:', getAllCategories());
+    console.log('Carrinho:', cart);
+}
+
+// Executar debug
+debugSystem();
