@@ -37,6 +37,7 @@
             </div>
         </main>
     </div>
+    
 
     <footer>
             <p>Farmácia Digital © <span id="year"></span> - Atendimento Automático</p>
@@ -50,9 +51,18 @@
                    📞 Falar no WhatsApp
                 </a>
             </div>
+            <div class="admin-access">
+              <button id="adminBtn" style="font-size:.8rem">Acessar sessão de administrador</button>
+            </div>
         </footer>
         
     <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("adminBtn").addEventListener("click", () => {
+        const senha = prompt("Digite a senha de administrador:");
+        if (senha === "12345") window.location.href = "admin.html";
+        else alert("Senha incorreta!");
+      });
         // Ano automático
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>

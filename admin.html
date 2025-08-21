@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Administrador</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+  <div class="container">
+    <header>
+      <h1>Painel do Administrador</h1>
+      <p>Gerencie os produtos da Farmácia Digital</p>
+    </header>
+
+    <!-- 🔹 Menu Adicionar Produto -->
+    <section class="admin-section">
+      <h2>Adicionar Produto</h2>
+      <form id="addProductForm">
+        <input type="text" id="prodName" placeholder="Nome do produto" required>
+        <input type="number" id="prodPrice" placeholder="Preço (R$)" step="0.01" required>
+        <div class="row">
+          <select id="prodCategory" required></select>
+          <button type="button" id="addCategoryBtn">+ Nova Categoria</button>
+        </div>
+        <input type="url" id="prodImage" placeholder="URL da Imagem" required>
+        <button type="submit">Adicionar Produto</button>
+      </form>
+    </section>
+
+    <!-- 🔹 Menu Editar Produto -->
+    <section class="admin-section">
+      <h2>Editar Produto</h2>
+      <form id="editProductForm">
+        <select id="editProductSelect" required></select>
+        <input type="text" id="editProdName" placeholder="Novo nome do produto" required>
+        <input type="number" id="editProdPrice" placeholder="Novo preço (R$)" step="0.01" required>
+        <div class="row">
+          <select id="editProdCategory" required></select>
+        </div>
+        <input type="url" id="editProdImage" placeholder="Nova URL da Imagem" required>
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </section>
+
+    <!-- 🔹 Menu Remover Produto -->
+    <section class="admin-section">
+      <h2>Remover Produto</h2>
+      <div id="adminProductList"></div>
+    </section>
+
+    <p><a href="index.html">← Voltar para o início</a></p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
